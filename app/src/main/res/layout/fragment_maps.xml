@@ -7,18 +7,16 @@
     android:name="com.goodle.android.gms.maps.SupportMapFragment"
     tools:context="Main.MapsFragment">
 
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/google_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        tools:layout="@layout/activity_home" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <fragment
-            android:id="@+id/google_map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="131dp"
-            tools:layout_editor_absoluteY="92dp" />
-
 
         <ImageView
             android:id="@+id/login_logo"
