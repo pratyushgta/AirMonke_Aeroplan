@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/hub"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/title_hub" />
+
+    <item
+        android:id="@+id/trips"
+        android:icon="@drawable/baseline_luggage_24"
+        android:title="@string/title_trips" />
+
+    <item
+        android:id="@+id/maps"
+        android:icon="@drawable/baseline_map_24"
+        android:title="@string/title_maps" />
+
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="@string/title_account" />
+
+</menu>

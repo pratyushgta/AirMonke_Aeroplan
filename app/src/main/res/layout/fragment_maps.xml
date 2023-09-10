@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:name="com.goodle.android.gms.maps.SupportMapFragment"
+    tools:context="Main.MapsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/google_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="92dp" />
+
+
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="188dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="61dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="61dp"
+            android:layout_marginBottom="637dp"
+            android:foregroundGravity="top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.152"
+            app:srcCompat="@drawable/airmonke_logo_only" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
