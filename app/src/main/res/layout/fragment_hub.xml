@@ -1,18 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/PiperTeal"
+    android:background="@color/PiperWhite"
     tools:context="Main.HubFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/hub_photo"
+        android:layout_width="412dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/z_gradient_overlay"
+        android:scaleType="centerCrop"
+        android:src="@drawable/z_gradient_overlay"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_half_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_half_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME_SCREEN"
-        android:textColor="@color/Pantone433PC_BLACK"
-        android:textSize="25dp"
-        android:layout_gravity="center"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/hub_logo"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:elevation="1dp"
+        android:src="@drawable/airmonke_logo_v"
+        app:layout_constraintBottom_toBottomOf="@+id/hub_photo"
+        app:layout_constraintEnd_toEndOf="@+id/hub_photo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/hub_photo"
+        app:layout_constraintTop_toTopOf="@+id/hub_photo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello there"
+        android:textColor="@color/PiperWhite"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/hub_logo"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jangus!"
+        android:textColor="@color/Pantone2088C_PURPLE"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/hub_logo"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

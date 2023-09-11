@@ -1,12 +1,10 @@
 package com.example.novemberechonew.Main;
 import android.os.Bundle;
-import com.example.novemberechonew.databinding.ActivityMainBinding;
-import com.google.android.material.snackbar.Snackbar;
+
+import com.example.novemberechonew.Main.Trips.TripsFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
-import androidx.core.view.WindowCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.novemberechonew.databinding.ActivityHomeBinding;

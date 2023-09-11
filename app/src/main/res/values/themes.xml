@@ -5,9 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
         <!-- PRIMARY COLORS -->
-        <item name="colorPrimary">@color/PiperWhite</item>
-        <item name="colorPrimaryVariant">@color/PiperWhite</item>
-        <item name="colorOnPrimary">@color/PiperWhite</item>
+        <item name="colorPrimary">@color/Pantone137C_ORANGE</item>
+        <item name="colorPrimaryVariant">@color/Pantone137C_ORANGE</item>
+        <item name="colorOnPrimary">@color/Pantone137C_ORANGE</item>
 
         <!-- SECONDARY COLORS -->
         <item name="colorSecondary">@color/PiperWhite</item>
@@ -15,7 +15,7 @@
         <item name="colorOnSecondary">@color/PiperWhite</item>
 
         <!-- STATUS BAR COLORS -->
-        <item name="android:statusBarColor">@color/PiperWhite</item>
+        <item name="android:statusBarColor">@color/Pantone137C_ORANGE</item>
     </style>
 
     <style name="Theme.NovemberEchoNew" parent="Base.Theme.NovemberEchoNew" />

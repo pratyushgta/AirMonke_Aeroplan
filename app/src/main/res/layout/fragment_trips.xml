@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Pantone2088C_PURPLE"
-    tools:context="Main.TripsFragment">
+    android:background="@color/Pantone137C_ORANGE"
+    tools:context=".Main.Trips.TripsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TRIPS_SCREEN"
-        android:textColor="@color/Pantone433PC_BLACK"
-        android:textSize="25dp"
-        android:layout_gravity="center"/>
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/trips_logo"
+        android:layout_width="188dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="637dp"
+        android:foregroundGravity="top"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/airmonke_logo_only" />
 
-</FrameLayout>
+    <!-- TabLayout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:contentDescription="tablets_nomnom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trips_logo"
+        app:tabIndicatorColor="@color/Pantone2088C_PURPLE"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/Pantone2088C_PURPLE"
+        app:tabTextColor="@color/PiperWhite" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/trips_viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

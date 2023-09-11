@@ -30,10 +30,9 @@ public class LoginActivity extends AppCompatActivity {
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
-        slideModels.add(new SlideModel(R.drawable.miles_generic, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(com.denzcoskun.imageslider.R.drawable.placeholder, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(com.denzcoskun.imageslider.R.drawable.placeholder, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.miles_generic, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.login_banner1e, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.login_banner2e, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.login_banner3e, ScaleTypes.FIT));
 
         imageSlider.setImageList(slideModels,ScaleTypes.FIT);
 

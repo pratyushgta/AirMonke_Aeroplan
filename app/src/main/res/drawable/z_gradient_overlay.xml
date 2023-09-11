@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/vegas_generic" />
+
+    <!-- Define the gradient for fading -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:centerColor="#88000000"
+                android:endColor="#FF000000"
+                android:startColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>
