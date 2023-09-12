@@ -47,7 +47,7 @@ public class TripsFragment extends Fragment {
     }
 
     // Create an inner PagerAdapter to manage the fragments for each section
-    class MyPagerAdapter extends FragmentStateAdapter {
+    static class MyPagerAdapter extends FragmentStateAdapter {
 
         public MyPagerAdapter(Fragment fragment) {
             super(fragment);

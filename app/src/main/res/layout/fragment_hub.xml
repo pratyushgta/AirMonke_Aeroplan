@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/PiperWhite"
-    tools:context="Main.HubFragment">
+    tools:context=".Main.Hub.HubFragment">
 
     <ImageView
         android:id="@+id/hub_photo"
@@ -69,5 +69,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/hub_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="150dp"
+        android:paddingEnd="100dp"
+        android:foregroundGravity="center"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

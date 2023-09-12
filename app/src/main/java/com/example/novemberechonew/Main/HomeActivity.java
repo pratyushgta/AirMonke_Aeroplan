@@ -1,6 +1,7 @@
 package com.example.novemberechonew.Main;
 import android.os.Bundle;
 
+import com.example.novemberechonew.Main.Hub.HubFragment;
 import com.example.novemberechonew.Main.Trips.TripsFragment;
 
 import androidx.annotation.NonNull;
