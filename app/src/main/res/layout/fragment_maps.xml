@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Pantone137C_ORANGE"
-    android:name="com.goodle.android.gms.maps.SupportMapFragment"
-    tools:context="Main.MapsFragment">
+    android:background="@color/Pantone137C_ORANGE">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,14 +22,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/airmonke_logo_only" />
 
-        <!-- Place the MapFragment below the ImageView -->
+        <!-- Place the SupportMapFragment below the ImageView -->
         <fragment
             android:id="@+id/google_map"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:name="com.google.android.gms.maps.SupportMapFragment"
-            app:layout_constraintTop_toBottomOf="@+id/login_logo"
-            app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
             tools:layout="@layout/activity_home" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

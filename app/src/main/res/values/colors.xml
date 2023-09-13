@@ -8,4 +8,13 @@
     <color name="PiperTeal">#006363</color>
     <color name="PiperRed">#DC4D4D</color>
     <color name="PiperWhite">#D8D5BE</color>
+
+
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="colorAccent">#FDD835</color>
+    <color name="transparent">#00000000</color>
+    <color name="grayTxt">#8c8c8c</color>
+    <color name="blue">#344ff4</color>
+
 </resources>

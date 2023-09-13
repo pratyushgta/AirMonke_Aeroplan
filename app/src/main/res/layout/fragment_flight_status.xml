@@ -1,18 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/PiperWhite"
     tools:context=".Main.Trips.FlightStatusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/login_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794">
+
+        <!-- Sign Up Button -->
+
+        <!-- Login Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_signupbtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Pantone433PC_BLACK"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="by Route"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.757"
+            app:layout_constraintStart_toEndOf="@+id/logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.063" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_loginbtn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/PiperWhite"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="by number "
+            android:textColor="@color/Pantone433PC_BLACK"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.757"
+            app:layout_constraintStart_toEndOf="@+id/logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.063"
+            app:strokeColor="@color/Pantone433PC_BLACK"
+            app:strokeWidth="3dp" />
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/book_sampleText"
+        android:id="@+id/textView"
+        android:layout_width="327dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="193dp"
+        android:layout_marginEnd="185dp"
+        android:layout_marginBottom="123dp"
+        android:text="@string/flight_status_for_your_upcoming_flights_will_automatically_appear_here_3_days_before_departure"
+        android:textAlignment="center"
+        android:textColor="@color/Pantone433PC_BLACK"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_linearlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="FLIGHT_STATUS_HANDLERS"
-        android:textColor="@color/Pantone433PC_BLACK"
-        android:textSize="25dp" />
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="16dp"
+        android:text="Track..."
+        android:textAlignment="center"
+        android:textColor="@color/PiperTeal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/login_linearlayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.811" />
 
-</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

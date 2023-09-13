@@ -7,25 +7,39 @@
     android:background="@color/PiperWhite"
     tools:context=".Main.Hub.HubFragment">
 
-    <ImageView
-        android:id="@+id/hub_photo"
+    <FrameLayout
+        android:id="@+id/hub_photo_container"
         android:layout_width="412dp"
         android:layout_height="0dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/z_gradient_overlay"
-        android:scaleType="centerCrop"
-        android:src="@drawable/z_gradient_overlay"
         app:layout_constraintBottom_toTopOf="@+id/guideline_half_screen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/hub_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_placeholder" />
+
+        <!-- Apply the gradient overlay to the ImageView -->
+        <ImageView
+            android:id="@+id/gradient_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/z_gradient_overlay"
+            android:scaleType="centerCrop"
+            android:visibility="invisible" />
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_half_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.6" />
 
 
     <ImageView
@@ -34,15 +48,15 @@
         android:layout_height="80dp"
         android:elevation="1dp"
         android:src="@drawable/airmonke_logo_v"
-        app:layout_constraintBottom_toBottomOf="@+id/hub_photo"
-        app:layout_constraintEnd_toEndOf="@+id/hub_photo"
+        app:layout_constraintBottom_toBottomOf="@+id/hub_photo_container"
+        app:layout_constraintEnd_toEndOf="@+id/hub_photo_container"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/hub_photo"
-        app:layout_constraintTop_toTopOf="@+id/hub_photo"
+        app:layout_constraintStart_toStartOf="@+id/hub_photo_container"
+        app:layout_constraintTop_toTopOf="@+id/hub_photo_container"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/hub_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello there"
@@ -56,7 +70,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/hub_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jangus!"
@@ -67,13 +81,16 @@
         app:layout_constraintEnd_toStartOf="@+id/hub_logo"
         app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/hub_greeting"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/hub_viewPager"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hub_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="100dp"
         android:paddingStart="150dp"
         android:paddingEnd="100dp"
         android:foregroundGravity="center"
@@ -82,5 +99,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/hub_cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/PiperWhite"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/hub_photo_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hub_user"
+        app:layout_constraintVertical_bias="0.63" />
+
+    <TextView
+        android:id="@+id/hub_BookNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/book_now"
+        android:textColor="@color/PiperRed"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/hub_photo_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hub_cityName"
+        app:layout_constraintVertical_bias="0.0" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

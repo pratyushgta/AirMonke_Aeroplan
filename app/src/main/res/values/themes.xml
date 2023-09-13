@@ -5,17 +5,17 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
         <!-- PRIMARY COLORS -->
-        <item name="colorPrimary">@color/Pantone137C_ORANGE</item>
-        <item name="colorPrimaryVariant">@color/Pantone137C_ORANGE</item>
-        <item name="colorOnPrimary">@color/Pantone137C_ORANGE</item>
+        <item name="colorPrimary">@color/Pantone433PC_BLACK</item>
+        <item name="colorPrimaryVariant">@color/Pantone433PC_BLACK</item>
+        <item name="colorOnPrimary">@color/Pantone433PC_BLACK</item>
 
         <!-- SECONDARY COLORS -->
-        <item name="colorSecondary">@color/PiperWhite</item>
-        <item name="colorSecondaryVariant">@color/PiperWhite</item>
-        <item name="colorOnSecondary">@color/PiperWhite</item>
+        <item name="colorSecondary">@color/Pantone433PC_BLACK</item>
+        <item name="colorSecondaryVariant">@color/Pantone433PC_BLACK</item>
+        <item name="colorOnSecondary">@color/Pantone433PC_BLACK</item>
 
         <!-- STATUS BAR COLORS -->
-        <item name="android:statusBarColor">@color/Pantone137C_ORANGE</item>
+        <item name="android:statusBarColor">@color/Pantone433PC_BLACK</item>
     </style>
 
     <style name="Theme.NovemberEchoNew" parent="Base.Theme.NovemberEchoNew" />
