@@ -1,4 +1,4 @@
-package com.example.novemberechonew.Main;
+package com.example.novemberechonew.Profile;
 
 import android.os.Bundle;
 
@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -16,20 +15,16 @@ import com.example.novemberechonew.R;
 
 import java.util.ArrayList;
 
-public class AccountFragment extends Fragment {
+public class Home_N_AccountFragment extends Fragment {
     ImageSlider imageSlider;
-    public AccountFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_home__n__account, container, false);
 
-        imageSlider = view.findViewById(R.id.login_slideshow);
+        imageSlider = view.findViewById(R.id.welcome_account_slideshow);
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 

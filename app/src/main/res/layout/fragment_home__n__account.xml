@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/Pantone137C_ORANGE"
-    tools:context=".Profile.LoginActivity">
+    tools:context=".Profile.Home_N_AccountFragment">
 
     <ImageView
-        android:id="@+id/login_logo"
+        android:id="@+id/welcome_account_logo"
         android:layout_width="188dp"
         android:layout_height="47dp"
         android:layout_marginStart="61dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="61dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="637dp"
         android:foregroundGravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,36 +23,38 @@
         app:layout_constraintVertical_bias="0.152"
         app:srcCompat="@drawable/airmonke_logo_only" />
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:cardBackgroundColor="@color/Pantone137C_ORANGE"
-        app:layout_constraintTop_toBottomOf="@+id/login_logo"
-        app:layout_constraintBottom_toTopOf="@+id/login_linearlayout"
-        app:layout_constraintStart_toStartOf="parent"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_account_linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="percent"
-        app:cardElevation="0dp"
-        app:layout_constraintHeight_percent="0.6">
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_account_logo"
+        app:layout_constraintVertical_bias="0.0">
 
         <com.denzcoskun.imageslider.ImageSlider
-            android:id="@+id/login_slideshow"
+            android:id="@+id/welcome_account_slideshow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:iss_auto_cycle="true"
             app:iss_delay="6000"
-            app:iss_period="6000"
-            app:iss_no_dots="true"/>
+            app:iss_no_dots="true"
+            app:iss_period="6000" />
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
-        android:id="@+id/login_linearlayout"
-        android:layout_width="395dp"
+        android:id="@+id/welcome_account_linearlayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,10 +62,9 @@
 
         <!-- Sign Up Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_signupbtn"
-            android:layout_width="match_parent"
+            android:id="@+id/welcome_account_signupbtn"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
             android:backgroundTint="@color/Pantone433PC_BLACK"
             android:fontFamily="monospace"
             android:gravity="center"
@@ -82,10 +83,9 @@
 
         <!-- Login Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_loginbtn"
-            android:layout_width="match_parent"
+            android:id="@+id/welcome_account_loginbtn"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
             android:backgroundTint="@color/PiperWhite"
             android:fontFamily="monospace"
             android:gravity="center"
@@ -103,19 +103,40 @@
             app:layout_constraintVertical_bias="0.063"
             app:strokeColor="@color/Pantone433PC_BLACK"
             app:strokeWidth="3dp" />
-
-        <!-- Continue as a Guest (Hyperlink) -->
-        <TextView
-            android:id="@+id/login_guestbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/guest_continue"
-            android:textColor="@color/Pantone433PC_BLACK"
-            android:textColorHighlight="@color/Pantone433PC_BLACK"
-            android:textColorLink="@color/Pantone433PC_BLACK"
-            android:textSize="16sp" />
     </LinearLayout>
+
+    <ImageButton
+        android:contentDescription="apples"
+        android:id="@+id/imageButton"
+        android:layout_width="309dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="53dp"
+        android:src="@drawable/monkemiles_logo_d"
+        app:circularflow_radiusInDP="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_account_linearlayout"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="292dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="182dp"
+        android:layout_marginBottom="28dp"
+        android:text="Sign up for Affenmeilen, Air Monke's very own frequent flyer program."
+        android:textAlignment="center"
+        android:textColor="@color/PiperTeal"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_account_linearlayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

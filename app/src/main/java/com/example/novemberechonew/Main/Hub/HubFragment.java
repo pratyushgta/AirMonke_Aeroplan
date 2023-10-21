@@ -2,7 +2,6 @@ package com.example.novemberechonew.Main.Hub;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,13 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.novemberechonew.Main.AccountFragment;
-import com.example.novemberechonew.Main.HomeActivity;
 import com.example.novemberechonew.Main.MapsFragment;
 import com.example.novemberechonew.Main.Trips.BookFragment;
 import com.example.novemberechonew.Main.Trips.MyBookingsFragment;
-import com.example.novemberechonew.MainActivity;
-import com.example.novemberechonew.Profile.LoginActivity;
+import com.example.novemberechonew.Profile.Home_N_AccountFragment;
 import com.example.novemberechonew.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
@@ -34,8 +30,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Random;
@@ -65,7 +59,7 @@ public class HubFragment extends Fragment {
                     user.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            AccountFragment accountFragment = new AccountFragment();
+                            Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
                             transaction.replace(R.id.home_framelayout, accountFragment);
@@ -237,7 +231,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        AccountFragment accountFragment = new AccountFragment();
+                        Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
                         transaction.replace(R.id.home_framelayout, accountFragment);

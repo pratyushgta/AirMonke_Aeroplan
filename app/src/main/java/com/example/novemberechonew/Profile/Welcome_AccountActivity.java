@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,16 +18,20 @@ import com.example.novemberechonew.R;
 import java.util.ArrayList;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class Welcome_AccountActivity extends AppCompatActivity {
     TextView guest;
     ImageSlider imageSlider;
+
+    Button signup, login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_welcome_account);
 
-        imageSlider = findViewById(R.id.login_slideshow);
-        guest = findViewById(R.id.login_guestbtn);
+        imageSlider = findViewById(R.id.welcome_account_slideshow);
+        guest = findViewById(R.id.welcome_account_guestbtn);
+        login = findViewById(R.id.welcome_account_loginbtn);
+        signup = findViewById(R.id.welcome_account_signupbtn);
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
@@ -41,11 +46,27 @@ public class LoginActivity extends AppCompatActivity {
         guest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent home = new Intent(LoginActivity.this, HomeActivity.class);
+                Intent home = new Intent(Welcome_AccountActivity.this, HomeActivity.class);
                 startActivity(home);
             }
         });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent login = new Intent(Welcome_AccountActivity.this, AccountsActivity.class);
+                login.putExtra("frgToLoad", 0);
+                startActivity(login);
+            }
+        });
 
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signup = new Intent(Welcome_AccountActivity.this, AccountsActivity.class);
+                signup.putExtra("frgToLoad", 1);
+                startActivity(signup);
+            }
+        });
 
     }
 

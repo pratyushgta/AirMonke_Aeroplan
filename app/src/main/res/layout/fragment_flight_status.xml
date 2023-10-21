@@ -8,7 +8,7 @@
     tools:context=".Main.Trips.FlightStatusFragment">
 
     <LinearLayout
-        android:id="@+id/login_linearlayout"
+        android:id="@+id/welcome_account_linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -24,7 +24,7 @@
 
         <!-- Login Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_signupbtn"
+            android:id="@+id/welcome_account_signupbtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/Pantone433PC_BLACK"
@@ -43,7 +43,7 @@
             app:layout_constraintVertical_bias="0.063" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_loginbtn"
+            android:id="@+id/welcome_account_loginbtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/PiperWhite"
@@ -76,7 +76,7 @@
         android:textAlignment="center"
         android:textColor="@color/Pantone433PC_BLACK"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_linearlayout"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_account_linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,7 +95,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/login_linearlayout"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_account_linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
         app:layout_constraintStart_toStartOf="parent"

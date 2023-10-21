@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+
+import com.example.novemberechonew.Profile.Home_N_AccountFragment;
 import com.example.novemberechonew.databinding.ActivityHomeBinding;
 
 import com.example.novemberechonew.R;
@@ -32,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.maps) {
                 selectedFragment = new MapsFragment();
             } else if (item.getItemId() == R.id.account) {
-                selectedFragment = new AccountFragment();
+                selectedFragment = new Home_N_AccountFragment();
             }
             if (selectedFragment != null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.home_framelayout, selectedFragment).commit();

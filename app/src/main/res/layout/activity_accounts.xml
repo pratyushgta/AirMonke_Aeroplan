@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Pantone137C_ORANGE"
+    tools:context=".Profile.AccountsActivity">
+
+    <!-- Logo Image -->
+    <ImageView
+        android:id="@+id/accounts_logo"
+        android:layout_width="188dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="637dp"
+        android:foregroundGravity="top"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/airmonke_logo_only" />
+
+    <!-- TabLayout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="63dp"
+        android:contentDescription="tablets_nomnom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accounts_logo"
+        app:tabIndicatorColor="@color/Pantone2088C_PURPLE"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/Pantone2088C_PURPLE"
+        app:tabTextColor="@color/PiperWhite" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/accounts_viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/accounts_closeButton"
+        android:contentDescription="Back Button"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        app:cornerRadius="200dp"
+        app:icon="@drawable/cross_icon"
+        app:iconTint="@color/PiperRed"
+        app:layout_constraintBottom_toBottomOf="@+id/accounts_logo"
+        app:layout_constraintEnd_toStartOf="@+id/accounts_logo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

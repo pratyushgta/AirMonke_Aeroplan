@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/login_linearlayout"
+        android:id="@+id/welcome_account_linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -42,7 +42,7 @@
 
         <!-- Login Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_signupbtn"
+            android:id="@+id/welcome_account_signupbtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/Pantone433PC_BLACK"
@@ -61,7 +61,7 @@
             app:layout_constraintVertical_bias="0.063" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_loginbtn"
+            android:id="@+id/welcome_account_loginbtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/PiperWhite"
