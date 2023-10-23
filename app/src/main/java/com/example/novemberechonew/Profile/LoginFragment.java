@@ -1,5 +1,7 @@
 package com.example.novemberechonew.Profile;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -21,21 +24,23 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class LoginFragment extends Fragment {
-    TextInputEditText editEmail, editPassword;
+    EditText editEmail, editPassword;
     Button loginBtn;
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
     FirebaseAuth mAuth;
+    AlertDialog alertDialog;
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
+        // Check if the user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent home = new Intent(getContext(), HomeActivity.class);
             startActivity(home);
         }
@@ -49,23 +54,33 @@ public class LoginFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         editEmail = view.findViewById(R.id.login_email);
         editPassword = view.findViewById(R.id.login_password);
-        loginBtn = view.findViewById(R.id.login_button);
-        progressBar = view.findViewById(R.id.login_progressBar);
+        loginBtn = view.findViewById(R.id.login_loginButton);
+        //progressBar = view.findViewById(R.id.login_progressBar);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setCancelable(false);
+                builder.setView(R.layout.progress_layout);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
                 String email, password;
                 email = String.valueOf(editEmail.getText());
                 password = String.valueOf(editPassword.getText());
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(getContext(), "Enter email", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email)) {
+                    //progressBar.setVisibility(View.GONE);
+                    dialog.dismiss();
+                    Toast.makeText(getContext(), "ig you missed the email...", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(getContext(), "Enter password", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(password)) {
+                    //progressBar.setVisibility(View.GONE);
+                    dialog.dismiss();
+                    Toast.makeText(getContext(), "ig you missed the password...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -73,28 +88,39 @@ public class LoginFragment extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
+                                //progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    //Log.d(TAG, "signInWithEmail:success");
+                                    dialog.dismiss();
+                                    // Sign-in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(getContext(), "Logged in!",
-                                            Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Logged in!", Toast.LENGTH_SHORT).show();
 
                                     Intent home = new Intent(getContext(), HomeActivity.class);
                                     startActivity(home);
-                                    //updateUI(user);
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                    Toast.makeText(getContext(), "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+                                    // Authentication failed, display the error message
+                                    String errorMessage = task.getException().getMessage();
+                                    showFirebaseErrorDialog(errorMessage);
                                 }
                             }
                         });
-
             }
         });
         return view;
+    }
+
+    private void showFirebaseErrorDialog(String errorMessage) {
+        alertDialog = new AlertDialog.Builder(getContext())
+                .setTitle("Authentication Failed")
+                .setMessage(errorMessage)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alertDialog.dismiss();
+                    }
+                })
+                .create();
+        alertDialog.show();
     }
 }

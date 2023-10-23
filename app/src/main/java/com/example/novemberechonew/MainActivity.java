@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int DELAY_MILLIS = 5000; // 5 seconds
 
     FirebaseAuth mAuth;
-    Boolean isUserLoggedIn;
+    Boolean isUserLoggedIn = false;
 
     @Override
     public void onStart() {

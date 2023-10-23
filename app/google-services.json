@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "432629237466",
+    "project_id": "airmonke",
+    "storage_bucket": "airmonke.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432629237466:android:1a9dfa9c1aaa6a4ced07e3",
+        "android_client_info": {
+          "package_name": "com.example.novemberechonew"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvIEy5Hfdm2dhdjQ0IlfZfkf0RL_2ZvMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
