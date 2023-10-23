@@ -7,17 +7,22 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.novemberechonew.Main.HomeActivity;
+import com.example.novemberechonew.Main.MapsFragment;
 import com.example.novemberechonew.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +35,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class LoginFragment extends Fragment {
     EditText editEmail, editPassword;
+    TextView register;
     Button loginBtn;
     //ProgressBar progressBar;
     FirebaseAuth mAuth;
@@ -55,7 +61,19 @@ public class LoginFragment extends Fragment {
         editEmail = view.findViewById(R.id.login_email);
         editPassword = view.findViewById(R.id.login_password);
         loginBtn = view.findViewById(R.id.login_loginButton);
+        register = view.findViewById(R.id.login_signupText);
         //progressBar = view.findViewById(R.id.login_progressBar);
+        register.setMovementMethod(LinkMovementMethod.getInstance());
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               /* ViewPager2 viewPager = null; // Assuming you have a reference to your ViewPager2 here.
+                
+                if (viewPager != null) {
+                    viewPager.setCurrentItem(1); // Assuming the RegisterFragment is at index 1.
+                }*/
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

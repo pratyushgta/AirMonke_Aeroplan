@@ -62,7 +62,7 @@ public class HubFragment extends Fragment {
                             Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             FragmentTransaction transaction = fragmentManager.beginTransaction();
-                            transaction.replace(R.id.home_framelayout, accountFragment);
+                            transaction.replace(R.id.accounts_framelayout, accountFragment);
                             transaction.addToBackStack(null);
                             transaction.commit();
                             BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
@@ -97,7 +97,7 @@ public class HubFragment extends Fragment {
                         BookFragment bookFragment = new BookFragment();
                         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.home_framelayout, bookFragment);
+                        transaction.replace(R.id.accounts_framelayout, bookFragment);
                         transaction.addToBackStack(null);
                         transaction.commit();
                         BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
@@ -189,7 +189,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                         BookFragment bookFragment = new BookFragment();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.home_framelayout, bookFragment);
+                        transaction.replace(R.id.accounts_framelayout, bookFragment);
                         transaction.addToBackStack(null);
                         transaction.commit();
                         BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
@@ -204,7 +204,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                         MyBookingsFragment myBookingsFragment = new MyBookingsFragment();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.home_framelayout, myBookingsFragment);
+                        transaction.replace(R.id.accounts_framelayout, myBookingsFragment);
                         transaction.addToBackStack(null);
                         transaction.commit();
                         BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
@@ -219,7 +219,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                         MapsFragment mapsFragment = new MapsFragment();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.home_framelayout, mapsFragment);
+                        transaction.replace(R.id.accounts_framelayout, mapsFragment);
                         transaction.addToBackStack(null);
                         transaction.commit();
                         BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
@@ -234,7 +234,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                         Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();
                         FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.home_framelayout, accountFragment);
+                        transaction.replace(R.id.accounts_framelayout, accountFragment);
                         transaction.addToBackStack(null);
                         transaction.commit();
                         BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);

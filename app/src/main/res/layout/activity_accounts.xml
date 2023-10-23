@@ -28,8 +28,8 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="0dp"
-        android:background="@color/Pantone433PC_BLACK"
         android:layout_height="63dp"
+        android:background="@color/Pantone433PC_BLACK"
         android:contentDescription="tablets_nomnom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +38,16 @@
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/Pantone2088C_PURPLE"
         app:tabTextColor="@color/PiperWhite" />
+    <!--
+    <FrameLayout
+        android:id="@+id/accounts_framelayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        TabLayout -->
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/accounts_viewPager"
@@ -50,11 +60,11 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/accounts_closeButton"
-        android:contentDescription="Back Button"
         android:layout_width="50dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@color/transparent"
+        android:contentDescription="Back Button"
         android:scaleType="fitXY"
         app:cornerRadius="200dp"
         app:icon="@drawable/cross_icon"

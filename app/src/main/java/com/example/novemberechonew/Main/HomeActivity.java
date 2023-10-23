@@ -37,10 +37,10 @@ public class HomeActivity extends AppCompatActivity {
                 selectedFragment = new Home_N_AccountFragment();
             }
             if (selectedFragment != null) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.home_framelayout, selectedFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.accounts_framelayout, selectedFragment).commit();
             }
             return true;
         });
-        getSupportFragmentManager().beginTransaction().replace(R.id.home_framelayout, new HubFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.accounts_framelayout, new HubFragment()).commit();
     }
 }
