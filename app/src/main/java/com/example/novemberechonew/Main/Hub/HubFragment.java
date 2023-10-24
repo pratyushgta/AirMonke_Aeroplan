@@ -1,5 +1,7 @@
 package com.example.novemberechonew.Main.Hub;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -8,17 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.novemberechonew.Backend.VariableManager;
 import com.example.novemberechonew.Main.MapsFragment;
 import com.example.novemberechonew.Main.Trips.BookFragment;
 import com.example.novemberechonew.Main.Trips.MyBookingsFragment;
 import com.example.novemberechonew.Profile.Home_N_AccountFragment;
+import com.example.novemberechonew.Profile.Home_Y_AccountFragment;
 import com.example.novemberechonew.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 import java.util.ArrayList;
 
@@ -35,9 +43,27 @@ import java.util.List;
 import java.util.Random;
 
 public class HubFragment extends Fragment {
+    FirebaseAuth mAuth;
+    Boolean isUserLoggedIn = false;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            isUserLoggedIn = true;
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hub, container, false);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser fire_user = FirebaseAuth.getInstance().getCurrentUser();
+        if (fire_user != null) {
+            isUserLoggedIn = true;
+        }
 
         // Randomize greetings
         String[] greetings = {"Buna ziua", "hallo", "Përshëndetje", "ሰላም", "Բարեւ Ձեզ", "Salam", "হ্যালো", "kaixo", "добры дзень", "zdravo", "Здравейте", "မင်္ဂလာပါ", "Hola", "kumusta", "你好", "你好", "Bonghjornu", "zdravo", "Hej", "Hallo", "Hello", "Henlo", "Hello there"};
@@ -48,9 +74,11 @@ public class HubFragment extends Fragment {
 
         //update user info
         TextView user = view.findViewById(R.id.hub_user);
-        if (isUserLoggedIn()) {
-            user.setText("Jangus!");
+        if (isUserLoggedIn && fire_user != null) {
+            user.setText(fire_user.getDisplayName());
+            //Log.e(TAG,fire_user.getDisplayName()+" "+fire_user.getEmail()+" "+isUserLoggedIn);
         } else {
+            //Log.e(TAG,fire_user.getDisplayName()+" "+fire_user.getEmail()+" "+isUserLoggedIn);
             user.setText("Login/ Sign Up");
             user.setMovementMethod(LinkMovementMethod.getInstance());
             user.setOnClickListener(new View.OnClickListener() {
@@ -122,13 +150,6 @@ public class HubFragment extends Fragment {
         //recyclerView.setClipToPadding(false);
         recyclerView.setAdapter(recyclerAdapter);
         return view;
-    }
-
-    private boolean isUserLoggedIn() {
-        // Check whether the user is logged in (e.g., using SharedPreferences or other storage)
-        // Return true if logged in, false if not
-        // Replace this logic with your actual implementation
-        return false; // Change to true if the user is logged in
     }
 }
 
@@ -231,14 +252,27 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
-                        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.accounts_framelayout, accountFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
-                        bottomNavigationView.setSelectedItemId(R.id.account);
+                        FirebaseUser fire_user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (fire_user != null) {
+                            Home_Y_AccountFragment accountFragment = new Home_Y_AccountFragment();
+                            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.replace(R.id.accounts_framelayout, accountFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                            BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
+                            bottomNavigationView.setSelectedItemId(R.id.account);
+                        } else{
+                            Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
+                            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.replace(R.id.accounts_framelayout, accountFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                            BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
+                            bottomNavigationView.setSelectedItemId(R.id.account);
+                        }
+
                     }
                 });
                 break;

@@ -1,5 +1,6 @@
 package com.example.novemberechonew.Profile;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,8 +8,10 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -26,6 +29,7 @@ import com.example.novemberechonew.Main.MapsFragment;
 import com.example.novemberechonew.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,11 +71,12 @@ public class LoginFragment extends Fragment {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* ViewPager2 viewPager = null; // Assuming you have a reference to your ViewPager2 here.
-                
-                if (viewPager != null) {
-                    viewPager.setCurrentItem(1); // Assuming the RegisterFragment is at index 1.
-                }*/
+                Activity activity = (FragmentActivity) getActivity();
+                assert activity != null;
+                ViewPager2 viewPager2 = activity.findViewById(R.id.accounts_viewPager);
+                if (viewPager2 != null) {
+                    viewPager2.setCurrentItem(1);
+                }
             }
         });
 
@@ -110,7 +115,7 @@ public class LoginFragment extends Fragment {
                                 if (task.isSuccessful()) {
                                     dialog.dismiss();
                                     // Sign-in success, update UI with the signed-in user's information
-                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    //FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(getContext(), "Logged in!", Toast.LENGTH_SHORT).show();
 
                                     Intent home = new Intent(getContext(), HomeActivity.class);

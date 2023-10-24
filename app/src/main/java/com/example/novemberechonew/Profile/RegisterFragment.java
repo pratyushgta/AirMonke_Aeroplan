@@ -1,19 +1,30 @@
 package com.example.novemberechonew.Profile;
 
+import static android.content.ContentValues.TAG;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.novemberechonew.Main.HomeActivity;
@@ -27,20 +38,23 @@ import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class RegisterFragment extends Fragment {
 
-    TextInputEditText editEmail, editPassword;
+    TextInputEditText editEmail, editPassword, editFirst, editLast, editDOB, editPhone;
     Button registerBtn;
+    TextView login;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
+    AlertDialog alertDialog;
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        if (currentUser != null) {
             Intent home = new Intent(getContext(), HomeActivity.class);
             startActivity(home);
         }
@@ -52,25 +66,49 @@ public class RegisterFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
         mAuth = FirebaseAuth.getInstance();
-        editEmail = view.findViewById(R.id.register_email);
-        editPassword = view.findViewById(R.id.register_password);
-        registerBtn = view.findViewById(R.id.register_button);
-        progressBar = view.findViewById(R.id.register_progressBar);
+        editFirst = view.findViewById(R.id.signup_first_name);
+        editLast = view.findViewById(R.id.signup_last_name);
+        editDOB = view.findViewById(R.id.signup_dob);
+        editPhone = view.findViewById(R.id.signup_phone);
+        editEmail = view.findViewById(R.id.signup_email);
+        editPassword = view.findViewById(R.id.signup_password);
+        registerBtn = view.findViewById(R.id.signup_button);
+
+        login = view.findViewById(R.id.signup_loginText);
+        login.setMovementMethod(LinkMovementMethod.getInstance());
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Activity activity = (FragmentActivity) getActivity();
+                assert activity != null;
+                ViewPager2 viewPager2 = activity.findViewById(R.id.accounts_viewPager);
+                if (viewPager2 != null) {
+                    viewPager2.setCurrentItem(0);
+                }
+            }
+        });
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                //progressBar.setVisibility(View.VISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setCancelable(false);
+                builder.setView(R.layout.progress_layout);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                String fName, lastName, dob, phone, email, password;
+                fName = String.valueOf(editFirst.getText());
+                lastName = String.valueOf(editLast.getText());
+                dob = String.valueOf(editDOB.getText());
+                phone = String.valueOf(editPhone.getText());
                 email = String.valueOf(editEmail.getText());
                 password = String.valueOf(editPassword.getText());
 
-                if(TextUtils.isEmpty(email)){
-                    Toast.makeText(getContext(), "Enter email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(TextUtils.isEmpty(password)){
-                    Toast.makeText(getContext(), "Enter password", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(fName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(dob) || TextUtils.isEmpty(phone)) {
+                    dialog.dismiss();
+                    Toast.makeText(getContext(), "looks like you're missing something...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -78,18 +116,32 @@ public class RegisterFragment extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
+                                //progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                    dialog.dismiss();
+                                    FirebaseUser fire_user = FirebaseAuth.getInstance().getCurrentUser();
+                                    if (fire_user != null) {
+                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                                .setDisplayName(fName)
+                                                .build();
+                                        Log.e(TAG,fName);
+                                        fire_user.updateProfile(profileUpdates);
+                                    }
+
                                     // Sign in success, update UI with the signed-in user's information
-                                    //Log.d(TAG, "createUserWithEmail:success");
                                     //FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(getContext(), "Account created!",
                                             Toast.LENGTH_SHORT).show();
+                                    Activity activity = (FragmentActivity) getActivity();
+                                    assert activity != null;
+                                    ViewPager2 viewPager2 = activity.findViewById(R.id.accounts_viewPager);
+                                    if (viewPager2 != null) {
+                                        viewPager2.setCurrentItem(1);
+                                    }
                                 } else {
-                                    // If sign in fails, display a message to the user.
-                                    //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(getContext(), "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+                                    String errorMessage = task.getException().getMessage();
+                                    showFirebaseErrorDialog(errorMessage);
                                 }
                             }
                         });
@@ -97,5 +149,19 @@ public class RegisterFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private void showFirebaseErrorDialog(String errorMessage) {
+        alertDialog = new AlertDialog.Builder(getContext())
+                .setTitle("Authentication Failed")
+                .setMessage(errorMessage)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        alertDialog.dismiss();
+                    }
+                })
+                .create();
+        alertDialog.show();
     }
 }

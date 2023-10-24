@@ -1,14 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile.Home_Y_AccountFragment">
+    android:background="@color/PiperWhite"
+    android:fillViewport="true"
+    tools:context=".Profile.RegisterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <!-- Image View (Center-aligned) -->
+        <ImageView
+            android:id="@+id/yAccount_logo"
+            android:layout_width="188dp"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="61dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="61dp"
+            android:contentDescription="Your Image"
+            android:src="@drawable/airmonke_logo_only" />
+
+        <!-- Text View -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/Pantone137C_ORANGE"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/yAccount_miles_Description1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textSize="80sp" />
+
+                <TextView
+                    android:id="@+id/yAccount_miles_Description2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
+                    android:text="frequent flyer miles"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/yAccount_card0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/Pantone433PC_BLACK">
+
+            <ImageView
+                android:id="@+id/yAccount_miles_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="Your Image"
+                android:padding="5dp"
+                android:src="@drawable/monkemiles_logo_d" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/yAccount_card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/PiperTeal"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/yAccount_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Account Information"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/Pantone137C_ORANGE"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name:"
+                    android:textColor="@color/PiperWhite"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/yAccount_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="John Doe"
+                    android:textColor="@color/PiperWhite"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email:"
+                    android:textColor="@color/PiperWhite"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/yAccount_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="johndoe@example.com"
+                    android:textColor="@color/PiperWhite"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number:"
+                    android:textColor="@color/PiperWhite"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/yAccount_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="123-456-7890"
+                    android:textColor="@color/PiperWhite"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Create a horizontal LinearLayout for card1 and card2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Account Information Card 1 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/yAccount_card2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/PiperTeal"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/yAccount_card_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="apples"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/default_placeholder" />
+
+                    <TextView
+                        android:id="@+id/yAccount_card_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:text="Text"
+                        android:textAlignment="center"
+                        android:textColor="@color/PiperWhite"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/yAccount_button"
+                        android:layout_width="90dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/Pantone2088C_PURPLE"
+                        android:padding="4dp"
+                        android:text="Button"
+                        android:textColor="@color/Pantone433PC_BLACK"
+                        app:cornerRadius="50dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Account Information Card 2 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/yAccount_card3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/PiperTeal"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/yAccount_card2_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="apples"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/default_placeholder" />
+
+                    <TextView
+                        android:id="@+id/yAccount_card2_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp"
+                        android:text="Text"
+                        android:textAlignment="center"
+                        android:textColor="@color/PiperWhite"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/yAccount2_button"
+                        android:layout_width="90dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/Pantone2088C_PURPLE"
+                        android:padding="4dp"
+                        android:text="Button"
+                        android:textColor="@color/Pantone433PC_BLACK"
+                        app:cornerRadius="50dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/yAccount_logout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/PiperRed"
+            android:text="Logout"
+            android:textSize="18sp"
+            app:cornerRadius="20dp" />
+
+
+        <!-- Login Text -->
+        <TextView
+            android:id="@+id/yAccount_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="20dp"
+            android:padding="8dp"
+            android:text="@string/version"
+            android:textColor="@color/Pantone137C_ORANGE"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</ScrollView>

@@ -56,4 +56,5 @@
     <string name="book_now">Book Now ➤</string>
     <string name="flight_status_for_your_upcoming_flights_will_automatically_appear_here_3_days_before_departure">Flight status for your upcoming flights will automatically appear here 3 days before departure.</string>
     <string name="title_activity_welcome_account">Welcome_AccountActivity</string>
+    <string name="affenmeilen_desc">More miles, more rewards, more reasons to join. Earn Affenmeilen miles when you fly with AirMonke and partner carriers. Afeenmeilen can be used to offset your future AirMonke flights and ancillary products.</string>
 </resources>
