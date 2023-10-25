@@ -44,6 +44,25 @@ public class DBManager {
         return cursor;
     }
 
+    public Cursor DB_fetchFlightByID(String ID) {
+        String[] columns = new String[]{
+                DBHelper.FLIGHT_ID,
+                DBHelper.FLIGHT_ORG,
+                DBHelper.FLIGHT_DEST,
+                DBHelper.FLIGHT_DEPT_T,
+                DBHelper.FLIGHT_ARR_T
+        };
+
+        String selection = DBHelper.FLIGHT_ID + " = ?";
+        String[] selectionArgs = {ID};
+
+        Cursor cursor = database.query(DBHelper.TABLE_3_NAME, columns, selection, selectionArgs, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
     public int DB_updateUser(String id, String name, String email, String phone) {
         ContentValues contentValues = new ContentValues();
         //contentValues.put(DBHelper.USER_ID, id);

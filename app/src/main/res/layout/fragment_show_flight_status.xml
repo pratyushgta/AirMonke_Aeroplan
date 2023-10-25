@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/PiperWhite"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Main.Trips.FlightStatusFragment">
+
+    <!-- Logo Image -->
+    <!-- Image View (Center-aligned) -->
+    <ImageView
+        android:id="@+id/yAccount_logo"
+        android:layout_width="188dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="61dp"
+        android:contentDescription="Your Image"
+        android:src="@drawable/airmonke_logo_only" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/z_accounts_edittext"
+        app:cardBackgroundColor="@color/PiperTeal"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+
+            <TextView
+                android:id="@+id/status_flight_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FLight No"
+                android:textAlignment="viewStart"
+                android:textColor="@color/Pantone137C_ORANGE"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scheduled"
+                android:textAlignment="viewStart"
+                android:textColor="@color/Pantone433PC_BLACK"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <!-- Departure TextView -->
+
+                <TextView
+                    android:id="@+id/status_from"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/z_edittext_border"
+                    android:backgroundTint="@color/PiperWhite"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="test"
+                    android:textAlignment="center"
+                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/status_dept_t"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/z_edittext_border"
+                    android:backgroundTint="@color/PiperRed"
+                    android:drawableLeft="@drawable/baseline_alternate_email_24"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="test"
+                    android:textAlignment="center"
+                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="8dp"
+                    android:src="@drawable/baseline_airplane_ticket_24" />
+
+                <!-- Arrival TextView -->
+                <TextView
+                    android:id="@+id/status_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/z_edittext_border"
+                    android:backgroundTint="@color/PiperWhite"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="test"
+                    android:textAlignment="center"
+                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/status_arr_t"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/z_edittext_border"
+                    android:backgroundTint="@color/PiperRed"
+                    android:drawableLeft="@drawable/baseline_alternate_email_24"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:text="test"
+                    android:textAlignment="center"
+                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/track_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/PiperTeal"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/status_back"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/Pantone2088C_PURPLE"
+        android:text="Back"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+
+</LinearLayout>
