@@ -24,22 +24,25 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.novemberechonew.Backend.DataClass;
 import com.example.novemberechonew.Main.HomeActivity;
 import com.example.novemberechonew.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterFragment extends Fragment {
 
     TextInputEditText editEmail, editPassword, editFirst, editLast, editDOB, editPhone;
     Button registerBtn;
     TextView login;
-    ProgressBar progressBar;
+    String uid;
     FirebaseAuth mAuth;
     AlertDialog alertDialog;
 
@@ -118,14 +121,17 @@ public class RegisterFragment extends Fragment {
                                         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                                 .setDisplayName(fName)
                                                 .build();
-                                        Log.e(TAG,fName);
+                                        Log.e(TAG, fName);
                                         fire_user.updateProfile(profileUpdates);
+                                        uid = fire_user.getUid();
                                     }
+                                    firebase_uploadData();
 
                                     // Sign in success, update UI with the signed-in user's information
                                     //FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(getContext(), "Account created!",
                                             Toast.LENGTH_SHORT).show();
+
                                     Activity activity = (FragmentActivity) getActivity();
                                     assert activity != null;
                                     ViewPager2 viewPager2 = activity.findViewById(R.id.accounts_viewPager);
@@ -157,5 +163,32 @@ public class RegisterFragment extends Fragment {
                 })
                 .create();
         alertDialog.show();
+    }
+
+    public void firebase_uploadData() {
+        String fName, lastName, dob, phone, email, password;
+        fName = String.valueOf(editFirst.getText());
+        lastName = String.valueOf(editLast.getText());
+        dob = String.valueOf(editDOB.getText());
+        phone = String.valueOf(editPhone.getText());
+        email = String.valueOf(editEmail.getText());
+        password = String.valueOf(editPassword.getText());
+
+        DataClass dataClass = new DataClass(uid, fName + " " + lastName, dob, email, phone);
+
+        FirebaseDatabase.getInstance().getReference("AirMonke_UserData").child(uid)
+                .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.e(TAG, "SAVED!");
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, "FAILED!");
+                    }
+                });
     }
 }

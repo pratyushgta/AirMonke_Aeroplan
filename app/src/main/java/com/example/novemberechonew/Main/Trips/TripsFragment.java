@@ -1,12 +1,14 @@
 package com.example.novemberechonew.Main.Trips;
 
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import android.view.ViewGroup;
 import com.example.novemberechonew.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class TripsFragment extends Fragment {
 
@@ -60,7 +64,12 @@ public class TripsFragment extends Fragment {
                 case 0:
                     return new BookFragment();
                 case 1:
-                    return new MyBookingsFragment();
+                    FirebaseUser fire_user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (fire_user != null) {
+                        return new MyBookings_Y_Fragment();
+                    } else {
+                        return new MyBookings_N_Fragment();
+                    }
                 case 2:
                     return new FlightStatusFragment();
                 default:

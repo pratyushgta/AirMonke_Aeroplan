@@ -1,7 +1,5 @@
 package com.example.novemberechonew.Main.Hub;
 
-import static android.content.ContentValues.TAG;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,15 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.novemberechonew.Backend.VariableManager;
 import com.example.novemberechonew.Main.MapsFragment;
 import com.example.novemberechonew.Main.Trips.BookFragment;
-import com.example.novemberechonew.Main.Trips.MyBookingsFragment;
+import com.example.novemberechonew.Main.Trips.MyBookings_N_Fragment;
+import com.example.novemberechonew.Main.Trips.MyBookings_Y_Fragment;
 import com.example.novemberechonew.Profile.Home_N_AccountFragment;
 import com.example.novemberechonew.Profile.Home_Y_AccountFragment;
 import com.example.novemberechonew.R;
@@ -26,7 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
 
 import java.util.ArrayList;
 
@@ -222,14 +218,26 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                 holder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        MyBookingsFragment myBookingsFragment = new MyBookingsFragment();
-                        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-                        FragmentTransaction transaction = fragmentManager.beginTransaction();
-                        transaction.replace(R.id.accounts_framelayout, myBookingsFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
-                        bottomNavigationView.setSelectedItemId(R.id.trips);
+                        FirebaseUser fire_user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (fire_user != null) {
+                            MyBookings_Y_Fragment myBookings_y_fragment = new MyBookings_Y_Fragment();
+                            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.replace(R.id.accounts_framelayout, myBookings_y_fragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                            BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
+                            bottomNavigationView.setSelectedItemId(R.id.trips);
+                        } else {
+                            MyBookings_N_Fragment myBookings_y_fragment = new MyBookings_N_Fragment();
+                            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                            FragmentTransaction transaction = fragmentManager.beginTransaction();
+                            transaction.replace(R.id.accounts_framelayout, myBookings_y_fragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                            BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
+                            bottomNavigationView.setSelectedItemId(R.id.trips);
+                        }
                     }
                 });
                 break;
@@ -262,7 +270,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyRecyclerHol
                             transaction.commit();
                             BottomNavigationView bottomNavigationView = activity.findViewById(R.id.bottomNavigationView);
                             bottomNavigationView.setSelectedItemId(R.id.account);
-                        } else{
+                        } else {
                             Home_N_AccountFragment accountFragment = new Home_N_AccountFragment();
                             FragmentManager fragmentManager = activity.getSupportFragmentManager();
                             FragmentTransaction transaction = fragmentManager.beginTransaction();

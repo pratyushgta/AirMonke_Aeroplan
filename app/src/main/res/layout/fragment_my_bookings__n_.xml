@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/PiperWhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Main.Trips.MyBookingsFragment">
+    tools:context=".Main.Trips.MyBookings_N_Fragment">
     <!-- TODO: Update blank fragment layout -->
 
 

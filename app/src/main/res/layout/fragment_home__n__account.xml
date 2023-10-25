@@ -62,7 +62,7 @@
 
         <!-- Sign Up Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/welcome_account_signupbtn"
+            android:id="@+id/home_n_account_signupbtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/Pantone433PC_BLACK"
@@ -83,7 +83,7 @@
 
         <!-- Login Button -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/welcome_account_loginbtn"
+            android:id="@+id/home_n_account_loginbtn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/PiperWhite"
@@ -130,7 +130,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginEnd="182dp"
         android:layout_marginBottom="28dp"
-        android:text="Sign up for Affenmeilen, Air Monke's very own frequent flyer program."
+        android:text="Sign up for Affenmeilen, Air Monke's very own frequent flyer program!"
         android:textAlignment="center"
         android:textColor="@color/PiperTeal"
         android:textSize="16sp"

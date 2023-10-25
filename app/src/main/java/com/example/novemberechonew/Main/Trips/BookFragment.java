@@ -1,48 +1,46 @@
 package com.example.novemberechonew.Main.Trips;
 
+
+import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.novemberechonew.R;
 import com.google.android.material.datepicker.CalendarConstraints;
-import com.google.android.material.datepicker.DateValidatorPointBackward;
 import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 
-import java.nio.file.attribute.AclEntry;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
-
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BookFragment extends Fragment {
 
     Button adult_ic, adult_dec, child_ic, child_dec, btn_dateFrom, btn_dateTo;
-    TextView adult_counter_view, child_counter_view;
+    TextView adult_counter_view, child_counter_view, departFrom_view, arriveIn_view;
     ImageView counterImage;
     RadioGroup radioGroup;
 
@@ -50,6 +48,10 @@ public class BookFragment extends Fragment {
     private int adultCount = 1;
     private int childCount = 0;
     private String setDateFrom, setDateTo;
+    private String cityFrom, cityTo;
+    ArrayList<String> from_city_list;
+    ArrayList<String> to_city_list;
+    Dialog dCity_dialog, aCity_dialog;
 
 
     @Override
@@ -68,6 +70,119 @@ public class BookFragment extends Fragment {
         radioGroup = view.findViewById(R.id.book_radio_group);
         btn_dateFrom = view.findViewById(R.id.book_from);
         btn_dateTo = view.findViewById(R.id.book_to);
+        departFrom_view = view.findViewById(R.id.book_depart_from);
+        arriveIn_view = view.findViewById(R.id.book_arrive_in);
+
+
+        from_city_list = new ArrayList<>();
+        from_city_list.add("HKG Hong Kong");
+        from_city_list.add("NYC Ney York");
+        from_city_list.add("TKH Tokyo");
+        from_city_list.add("SGP Singapore");
+
+        to_city_list = new ArrayList<>();
+        to_city_list.add("HKG Hong Kong");
+        to_city_list.add("NYC Ney York");
+        to_city_list.add("TKH Tokyo");
+        to_city_list.add("SGP Singapore");
+
+        departFrom_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dCity_dialog = new Dialog(getContext());
+                dCity_dialog.setContentView(R.layout.z_spinner_from);
+                dCity_dialog.getWindow().setLayout(650, 800);
+                dCity_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dCity_dialog.show();
+
+                EditText editText = dCity_dialog.findViewById(R.id.edit_text);
+                ListView listView = dCity_dialog.findViewById(R.id.list_view);
+
+                ArrayAdapter<String> d_adapter = new ArrayAdapter<>(getContext(), R.layout.z_list_item, from_city_list);
+                listView.setAdapter(d_adapter);
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        d_adapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        if (d_adapter.getItem(position).equalsIgnoreCase(cityTo)) {
+                            Toast.makeText(getContext(), "Cannot be same as arrival city!",
+                                    Toast.LENGTH_SHORT).show();
+                            dCity_dialog.dismiss();
+                        } else {
+                            cityFrom = d_adapter.getItem(position);
+                            departFrom_view.setText(cityFrom);
+                            dCity_dialog.dismiss();
+                        }
+
+                    }
+                });
+            }
+        });
+
+        arriveIn_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aCity_dialog = new Dialog(getContext());
+                aCity_dialog.setContentView(R.layout.z_spinner_to);
+                aCity_dialog.getWindow().setLayout(650, 800);
+                aCity_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                aCity_dialog.show();
+
+                EditText editText = aCity_dialog.findViewById(R.id.edit_text);
+                ListView listView = aCity_dialog.findViewById(R.id.list_view);
+
+                ArrayAdapter<String> a_adapter = new ArrayAdapter<>(getContext(), R.layout.z_list_item, from_city_list);
+                listView.setAdapter(a_adapter);
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        a_adapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        if (a_adapter.getItem(position).equalsIgnoreCase(cityFrom)) {
+                            Toast.makeText(getContext(), "Cannot be same as departure city!",
+                                    Toast.LENGTH_SHORT).show();
+                            aCity_dialog.dismiss();
+                        } else {
+                            cityTo = a_adapter.getItem(position);
+                            arriveIn_view.setText(cityTo);
+                            aCity_dialog.dismiss();
+                        }
+
+                    }
+                });
+            }
+        });
 
         // >>>> COUNTER <<<<
         updateCountersAndButtons();

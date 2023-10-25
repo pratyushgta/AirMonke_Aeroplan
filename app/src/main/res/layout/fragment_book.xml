@@ -42,24 +42,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!-- Departure TextView -->
+                    <TextView
+                        android:id="@+id/book_depart_from"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
                         android:layout_weight="1"
-                        app:hintEnabled="false">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/book_first_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/z_edittext_border"
-                            android:drawablePadding="8dp"
-                            android:hint="First Name"
-                            android:inputType="text" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:background="@drawable/z_edittext_border"
+                        android:gravity="center_vertical"
+                        android:hint="Depart From"
+                        android:paddingStart="8dp"
+                        app:drawableEndCompat="@drawable/baseline_keyboard_arrow_down_24" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -68,23 +66,19 @@
                         android:padding="8dp"
                         android:src="@drawable/baseline_airplane_ticket_24" />
 
-
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!-- Arrival TextView -->
+                    <TextView
+                        android:id="@+id/book_arrive_in"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="8dp"
                         android:layout_weight="1"
-                        app:hintEnabled="false">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/book_last_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_margin="8dp"
-                            android:background="@drawable/z_edittext_border"
-                            android:drawablePadding="8dp"
-                            android:hint="Last Name"
-                            android:inputType="text" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                        android:background="@drawable/z_edittext_border"
+                        android:gravity="center_vertical"
+                        android:hint="Arriving in"
+                        android:paddingStart="8dp"
+                        app:drawableEndCompat="@drawable/baseline_keyboard_arrow_down_24" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -141,8 +135,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/Pantone433PC_BLACK"
-                            android:textColor="@color/PiperWhite"
                             android:text="+"
+                            android:textColor="@color/PiperWhite"
                             android:textSize="20sp"
                             app:cornerRadius="50dp" />
 
@@ -187,8 +181,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/Pantone433PC_BLACK"
-                            android:textColor="@color/PiperWhite"
                             android:text="+"
+                            android:textColor="@color/PiperWhite"
                             android:textSize="20sp"
                             app:cornerRadius="50dp" />
 
@@ -214,8 +208,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/Pantone433PC_BLACK"
-                            android:textColor="@color/PiperWhite"
                             android:text="-"
+                            android:textColor="@color/PiperWhite"
                             android:textSize="20sp"
                             app:cornerRadius="50dp" />
                     </LinearLayout>
@@ -318,12 +312,12 @@
         <!-- Register Button -->
         <Button
             android:id="@+id/book_search_button"
-            android:textColor="@color/Pantone433PC_BLACK"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/Pantone2088C_PURPLE"
             android:text="Search flights >"
+            android:textColor="@color/Pantone433PC_BLACK"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
     </LinearLayout>
