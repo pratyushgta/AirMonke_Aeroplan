@@ -6,14 +6,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.text.TextUtils;
@@ -28,13 +25,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.novemberechonew.Main.HomeActivity;
-import com.example.novemberechonew.Main.Trips.BookFragment;
 import com.example.novemberechonew.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -66,8 +60,8 @@ public class RegisterFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
         mAuth = FirebaseAuth.getInstance();
-        editFirst = view.findViewById(R.id.signup_first_name);
-        editLast = view.findViewById(R.id.signup_last_name);
+        editFirst = view.findViewById(R.id.book_first_name);
+        editLast = view.findViewById(R.id.book_last_name);
         editDOB = view.findViewById(R.id.signup_dob);
         editPhone = view.findViewById(R.id.signup_phone);
         editEmail = view.findViewById(R.id.signup_email);

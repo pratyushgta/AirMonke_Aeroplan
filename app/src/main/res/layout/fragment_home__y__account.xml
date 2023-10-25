@@ -27,18 +27,29 @@
 
         <!-- Text View -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/yAccount_card0"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="@color/Pantone137C_ORANGE"
+            app:cardBackgroundColor="@color/Pantone433PC_BLACK"
             app:cardCornerRadius="5dp"
             app:cardElevation="20dp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/yAccount_miles_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="Your Image"
+                    android:padding="5dp"
+                    android:src="@drawable/monkemiles_logo_d" />
 
                 <TextView
                     android:id="@+id/yAccount_miles_Description1"
@@ -48,7 +59,7 @@
                     android:text="0"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textColor="@color/Pantone137C_ORANGE"
                     android:textSize="80sp" />
 
                 <TextView
@@ -59,26 +70,11 @@
                     android:text="frequent flyer miles"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/Pantone433PC_BLACK"
+                    android:textColor="@color/PiperWhite"
                     android:textSize="20sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/yAccount_card0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/Pantone433PC_BLACK">
-
-            <ImageView
-                android:id="@+id/yAccount_miles_logo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="Your Image"
-                android:padding="5dp"
-                android:src="@drawable/monkemiles_logo_d" />
-        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/yAccount_card1"

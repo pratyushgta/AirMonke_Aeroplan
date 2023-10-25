@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MaterialCalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <!-- just override the colors used in the default style -->
+        <item name="colorOnPrimary">@color/Pantone137C_ORANGE</item>
+        <item name="colorPrimary">@color/PiperTeal</item>
+    </style>
+</resources>
