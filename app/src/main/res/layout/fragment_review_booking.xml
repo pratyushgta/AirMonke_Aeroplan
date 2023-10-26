@@ -45,7 +45,7 @@
                     android:id="@+id/yAccount_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Account Information"
+                    android:text="Review Booking"
                     android:textAlignment="viewStart"
                     android:textColor="@color/Pantone137C_ORANGE"
                     android:textSize="24sp"

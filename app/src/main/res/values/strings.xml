@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">9/11 NEW</string>
+    <string name="app_name">AirMonke</string>
     <string name="version">v0.0.3-alpha | Build 1410</string>
     <string name="title_hub">Hub</string>
     <string name="title_trips">Trips</string>

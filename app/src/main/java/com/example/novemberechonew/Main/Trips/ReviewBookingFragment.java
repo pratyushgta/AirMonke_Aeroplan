@@ -170,6 +170,7 @@ public class ReviewBookingFragment extends Fragment {
                         })
                         .create();
                 alertDialog.show();
+                confirm.setEnabled(false);
             }
         });
 

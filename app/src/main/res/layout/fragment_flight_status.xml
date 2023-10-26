@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:padding="8dp"
-        android:text="Flight statuc for your upcoming flights will automatically appear here 3 days before departure..."
+        android:text="Flight status for your upcoming flights will automatically appear here 3 days before departure..."
         android:textAlignment="center"
         android:textColor="@color/Pantone433PC_BLACK"
         android:textSize="14sp" />
