@@ -1,33 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/PiperWhite"
-    android:fillViewport="true"
-    tools:context=".Main.Trips.SearchFragment">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/yAccount_logo"
-            android:layout_width="188dp"
-            android:layout_height="47dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="61dp"
-            android:contentDescription="Your Image"
-            android:src="@drawable/airmonke_logo_only" />
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/PiperTeal"
+            app:cardBackgroundColor="@color/Pantone433PC_BLACK"
             app:cardElevation="20dp">
 
             <LinearLayout
@@ -36,14 +25,14 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/book_card1_text"
+                    android:id="@+id/flight_card_flight_num"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Search results for..."
+                    android:padding="5dp"
+                    android:text="flight #"
                     android:textAlignment="viewStart"
                     android:textColor="@color/Pantone137C_ORANGE"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <!-- First Name and Last Name Side-by-Side -->
@@ -55,19 +44,18 @@
 
                     <!-- Departure TextView -->
                     <TextView
-                        android:id="@+id/search_from"
+                        android:id="@+id/flight_card_depart"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/z_edittext_border"
                         android:gravity="center"
                         android:paddingStart="8dp"
                         android:text="test"
                         android:textAlignment="center"
                         android:textColor="@color/PiperWhite"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
 
                     <ImageView
@@ -75,23 +63,23 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:padding="8dp"
-                        android:src="@drawable/baseline_airplane_ticket_24" />
+                        android:src="@drawable/baseline_airplane_ticket_24"
+                        android:tint="@android:color/white" />
 
                     <!-- Arrival TextView -->
                     <TextView
-                        android:id="@+id/search_to"
+                        android:id="@+id/flight_card_arrive"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:background="@drawable/z_edittext_border"
                         android:gravity="center"
                         android:paddingStart="8dp"
                         android:text="test"
                         android:textAlignment="center"
                         android:textColor="@color/PiperWhite"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -100,38 +88,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="end"
+                    android:background="@color/Pantone2088C_PURPLE"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="5dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/search_extraInfo"
+                        android:id="@+id/flight_card_price"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
                         android:text="date_pax"
-                        android:textAlignment="center"
+                        android:paddingLeft="10dp"
                         android:textColor="@color/Pantone137C_ORANGE"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
 
                     <Button
-                        android:id="@+id/search_modify"
+                        android:id="@+id/flight_card_book"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/Pantone2088C_PURPLE"
-                        android:text="Modify"
+                        android:backgroundTint="@color/PiperTeal"
+                        android:textColor="@color/PiperWhite"
+                        android:text="Book"
                         android:textSize="18sp"
                         app:cornerRadius="20dp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <!-- Add your flight cards here within the flight_cards_layout -->
-        <LinearLayout
-            android:id="@+id/search_flight_cards_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!-- Add your flight cards dynamically here -->
-        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</androidx.cardview.widget.CardView>

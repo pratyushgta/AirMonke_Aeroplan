@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.novemberechonew.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -56,21 +58,21 @@ public class MapsFragment extends Fragment {
                 googleMap.addMarker(new MarkerOptions()
                         .position(singapore)
                         .title("Singapore")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                         .snippet("Description: Singapore is a diverse and beautiful city.")
                         .infoWindowAnchor(0.5f, 0.5f));
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(tokyo)
                         .title("Tokyo")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                         .snippet("Description: Tokyo is the capital of Japan.")
                         .infoWindowAnchor(0.5f, 0.5f));
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(mumbai)
                         .title("Mumbai")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                         .snippet("Description: Mumbai is a bustling metropolis in India.")
                         .infoWindowAnchor(0.5f, 0.5f));
 
@@ -102,8 +104,23 @@ public class MapsFragment extends Fragment {
                     @Override
                     public View getInfoContents(Marker marker) {
                         View infoWindow = getLayoutInflater().inflate(R.layout.z_custom_info_contents, null);
+                        ImageView image = infoWindow.findViewById(R.id.custom_card_image);
+                        TextView textView = infoWindow.findViewById(R.id.custom_card_text);
 
-                        // Customize the Info Window content here
+                        if ("Hong Kong".equals(marker.getTitle())) {
+                            image.setImageResource(R.drawable.vegas_generic);
+                            textView.setText("Hong Kong is a vibrant city.");
+                        } else if ("Singapore".equals(marker.getTitle())) {
+                            image.setImageResource(R.drawable.sentinelisland_generic);
+                            textView.setText("Singapore is a diverse and beautiful city.");
+                        } else if ("Mumbai".equals(marker.getTitle())) {
+                            image.setImageResource(R.drawable.paris_generic);
+                            textView.setText("Mumbai is a bustling metropolis in India.");
+                        } else if ("Tokyo".equals(marker.getTitle())) {
+                            image.setImageResource(R.drawable.bahrain_generic);
+                            textView.setText("Tokyo is the capital of Japan.");
+                        }
+
                         return infoWindow;
                     }
                 });

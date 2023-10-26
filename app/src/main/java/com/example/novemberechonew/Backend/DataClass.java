@@ -7,6 +7,7 @@ public class DataClass {
     private String dataName;
     private String dataEmail;
     private String dataPhone;
+    private String dataMiles;
     private String key;
 
     public String getKey() {
@@ -33,17 +34,20 @@ public class DataClass {
         return dataEmail;
     }
 
-
+    public String getDataMiles() {
+        return dataMiles;
+    }
     public String getDataPhone() {
         return dataPhone;
     }
 
-    public DataClass(String dataUID, String dataName, String dob, String dataEmail, String dataPhone) {
+    public DataClass(String dataUID, String dataName, String dob, String dataEmail, String dataPhone, String dataMiles) {
         this.dataUID = dataUID;
         this.dataName = dataName;
         this.dataDOB = dob;
         this.dataEmail = dataEmail;
         this.dataPhone = dataPhone;
+        this.dataMiles = dataMiles;
     }
 
     public DataClass() {

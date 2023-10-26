@@ -101,48 +101,45 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Name:"
-                    android:textColor="@color/PiperWhite"
-                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/yAccount_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:text="John Doe"
                     android:textColor="@color/PiperWhite"
                     android:textSize="18sp" />
 
-
                 <TextView
+                    android:id="@+id/yAccount_dob"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email:"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="dob"
                     android:textColor="@color/PiperWhite"
                     android:textSize="18sp" />
+
 
                 <TextView
                     android:id="@+id/yAccount_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:text="johndoe@example.com"
                     android:textColor="@color/PiperWhite"
                     android:textSize="18sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Phone Number:"
-                    android:textColor="@color/PiperWhite"
-                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/yAccount_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
                     android:text="123-456-7890"
                     android:textColor="@color/PiperWhite"
                     android:textSize="18sp" />

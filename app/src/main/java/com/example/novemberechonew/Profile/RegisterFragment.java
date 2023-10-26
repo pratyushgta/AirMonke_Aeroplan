@@ -45,6 +45,7 @@ public class RegisterFragment extends Fragment {
     String uid;
     FirebaseAuth mAuth;
     AlertDialog alertDialog;
+    int miles = 0;
 
     @Override
     public void onStart() {
@@ -124,6 +125,7 @@ public class RegisterFragment extends Fragment {
                                         Log.e(TAG, fName);
                                         fire_user.updateProfile(profileUpdates);
                                         uid = fire_user.getUid();
+                                        miles = 0;
                                     }
                                     firebase_uploadData();
 
@@ -174,7 +176,7 @@ public class RegisterFragment extends Fragment {
         email = String.valueOf(editEmail.getText());
         password = String.valueOf(editPassword.getText());
 
-        DataClass dataClass = new DataClass(uid, fName + " " + lastName, dob, email, phone);
+        DataClass dataClass = new DataClass(uid, fName + " " + lastName, dob, email, phone, String.valueOf(miles));
 
         FirebaseDatabase.getInstance().getReference("AirMonke_UserData").child(uid)
                 .setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {

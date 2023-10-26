@@ -76,7 +76,19 @@ public class DBHelper extends SQLiteOpenHelper {
                     "('AM46','Hong Kong', 'Singapore', '08:00', '13:00'), " +
                     "('AM51','Singapore', 'Hong Kong', '14:30', '19:00'), " +
                     "('AM39','Singapore', 'Hong Kong', '05:30', '10:00'), " +
+                    "('AM112','Hong Kong', 'Mumbai', '06:30', '10:00'), " +
+                    "('AM122','Hong Kong', 'Beijing', '05:30', '10:00'), " +
+                    "('AM59','Tokyo', 'Hong Kong', '05:30', '10:00'), " +
                     "('AM63','Hong Kong', 'Tokyo', '13:15', '18:00');";
+
+
+    public static final String INSERT_AIRPORT_DATA =
+            "INSERT INTO " + TABLE_2_NAME + " (" + AIRPORT_ID + ", " + AIRPORT_NAME + ", " + AIRPORT_ICAO + ", " + AIRPORT_CITY + ", " + AIRPORT_COUNTRY + ") VALUES " +
+                    "('A1','HKIA', 'HKG', 'Hong Kong', 'Hong Kong'), " +
+                    "('A2','SGA', 'SIN', 'Singapore', 'Singapore'), " +
+                    "('A3','CSMIA', 'BOM', 'Mumbai', 'India'), " +
+                    "('A4','HA', 'HND', 'Tokyo', 'Japan'), " +
+                    "('A5','BDIA', 'PEK', 'Beijing', 'China');";
 
 
     public DBHelper(@Nullable Context context) {
@@ -91,6 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_PAX_QUERY);
 
         db.execSQL(INSERT_FLIGHT_DATA);
+        db.execSQL(INSERT_AIRPORT_DATA);
     }
 
     @Override
