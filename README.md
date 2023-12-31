@@ -1,4 +1,4 @@
-# AirMonke- The Game
+# AirMonke- Flight Booking App
 <img align="right" src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/res/drawable/airmonke_logo_v.png?raw=true" height="250" width="300">
 AirMonke is a project that showcases a potential product for an Android-based, user-friendly flight booking app. This app simplifies the flight booking process by providing an intuitive and personalized interface. It allows users to efficiently compare and search for flights based on their travel plans and budget.
 
