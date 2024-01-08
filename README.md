@@ -10,14 +10,55 @@ The app will incorporate:
 
 ## Features
 1. Welcome screen
-2. User registration & sign-in page
+   
+   <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/startup_page.jpg?raw=true" width="200" alt="Startup Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/welcome_page.jpg?raw=true" width="200" alt="Welcome Page">
+
+2. User registration & login pages
+
+   <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/registration_page.jpg?raw=true" width="200" alt="Registration Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/login_page.jpg?raw=true" width="200" alt="Login Page">
+
 3. Home screen
+
+   <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/home2_page.jpg?raw=true" width="200" alt="Home1 Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/home_page.jpg?raw=true" width="200" alt="Home2 Page">
+
 4. User account info page
-5. Interactive maps & travel guides
-6. Search page
-7. Flight selection page
-8. Bookings page
-9. Flight status page
+   
+   <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/accounts1_page.jpg?raw=true" width="200" alt="Startup Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/accounts2_page.jpg?raw=true" width="200" alt="Welcome Page">
+
+
+6. Interactive maps & travel guides
+   
+   <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/maps_page.jpg?raw=true" width="200" alt="Startup Page">
+
+
+8. Search page
+   
+   <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/search1_page.jpg?raw=true" width="200" alt="Startup Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/search2_page.jpg?raw=true" width="200" alt="Welcome Page">
+
+
+10. Flight selection page
+    
+    <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/select_page.jpg?raw=true" width="200" alt="Startup Page">
+
+
+12. Bookings page
+    
+    <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/review_page.jpg?raw=true" width="200" alt="Startup Page">
+
+
+14. Flight status page
+    
+    <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/track1_page.jpg?raw=true" width="200" alt="Startup Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/track2_page.jpg?raw=true" width="200" alt="Welcome Page">
+
+
+16. Firebase databases
+    
+    <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/auth_db.png?raw=true" width="600" alt="Startup Page"> <img src="https://github.com/pratyushgta/AirMonke_Aeroplan/blob/master/app/src/main/java/com/example/novemberechonew/readme_files/user_db.png?raw=true" width="600" alt="Welcome Page">
+
 
 ## System requirements
 Tested and optimised for mobile devices (except tablets) with Android versions 10, 11, 12, 13.
+
+
+
+
